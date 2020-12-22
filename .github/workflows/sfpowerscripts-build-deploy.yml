@@ -58,6 +58,11 @@ jobs:
               id: sfpowerscripts-build
               run: 'sfdx sfpowerscripts:orchestrator:build -v devhub'
 
+            # Publish artifacts
+             - uses: actions/upload-artifact@v2
+               with:
+                 name: artifacts
+                 path: artifacts
             
             # Wait for package replication
             - name: 'Wait for package replication'
