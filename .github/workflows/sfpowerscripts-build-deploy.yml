@@ -74,11 +74,7 @@ jobs:
                      ./sfdx-cli/install
                      echo 'y' | sfdx plugins:install sfpowerkit
                      echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@alpha        
-            # Checkout the code
-            - name: 'Checkout source code'
-              uses: actions/checkout@v2
-
-
+           
              # Authenticate to DevHub
             - name: 'Authenticate to DevHub'
               shell: bash
@@ -93,7 +89,7 @@ jobs:
 
             # Install all new packages into scratch org
             - name: 'Install new package versions into scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
+              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org -d '
 
             # Housekeeping
             - name: Delete scratch org
