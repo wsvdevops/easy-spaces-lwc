@@ -50,5 +50,5 @@ jobs:
 
             # Validate source and trigger test
             - name: 'Push source to scratch org'
-              run: 'sfdx sfpowerscipts:orchestrate:prepare -t CI1 -v devhub --installall --installassourcepackages'
+              run: 'sfdx sfpowerscripts:orchestrate:prepare -t CI1 -v devhub --installall --installassourcepackages'
 
