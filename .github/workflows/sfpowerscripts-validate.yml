@@ -71,7 +71,7 @@ jobs:
              # Install sfpowerkit
             - name: Install sfpowerkit
               run: |
-                  echo'y' | sfdx plugins:install sfpowerkit
+                  echo 'y' | sfdx plugins:install sfpowerkit
 
              # Install sfpowerscripts
             - name: Install sfpowerscripts
