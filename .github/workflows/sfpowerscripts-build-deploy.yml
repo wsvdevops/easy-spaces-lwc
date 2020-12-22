@@ -14,7 +14,7 @@ on:
 
 # Jobs to be executed
 jobs:
-    packaging:
+    build-and-deploy:
         runs-on: ubuntu-latest
         steps:
             # Install Salesforce CLI
