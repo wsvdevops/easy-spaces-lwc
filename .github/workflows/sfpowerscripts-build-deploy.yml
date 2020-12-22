@@ -56,7 +56,7 @@ jobs:
             # Create all packages
             - name: 'Create packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub'
+              run: 'sfdx sfpowerscripts:orchestrator:quickbuild -v devhub'
 
             # Publish artifacts
             - uses: actions/upload-artifact@v2
