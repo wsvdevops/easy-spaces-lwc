@@ -70,10 +70,9 @@ jobs:
 
             # Install all new packages into scratch org
             - name: 'Install new package versions into scratch org'
-              if: steps.extract-data-package-version-create-baseObj.outputs.isSuccess && steps.extract-data-package-version-create-baseCode.outputs.isSuccess && steps.extract-data-package-version-create-baseStyles.outputs.isSuccess && steps.extract-data-package-version-create-spaceMgmt.outputs.isSuccess
               run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratchorg'
 
-     
+   
             # Housekeeping
             - name: Delete scratch org
               if: always()
