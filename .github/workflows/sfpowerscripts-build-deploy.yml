@@ -32,7 +32,7 @@ jobs:
             - name: 'Authenticate to DevHub'
               shell: bash
               run: |
-                    'echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
+                     echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
                      sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
                      rm -f ./DEVHUB_SFDX_URL.txt
 
@@ -82,7 +82,7 @@ jobs:
             - name: 'Authenticate to DevHub'
               shell: bash
               run: |
-                    'echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
+                     echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
                      sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
                      rm -f ./DEVHUB_SFDX_URL.txt
 
@@ -131,7 +131,7 @@ jobs:
            - name: 'Authenticate to DevHub'
              shell: bash
              run: |
-                    'echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
+                     echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
                      sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
                      rm -f ./DEVHUB_SFDX_URL.txt
                      
@@ -181,7 +181,7 @@ jobs:
              - name: 'Authenticate to DevHub'
                shell: bash
                run: |
-                    'echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
+                     echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
                      sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
                      rm -f ./DEVHUB_SFDX_URL.txt
 
