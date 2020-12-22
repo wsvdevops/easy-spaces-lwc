@@ -63,12 +63,6 @@ jobs:
               with:
                  name: artifacts
                  path: artifacts
-            
-            # Wait for package replication
-            - name: 'Wait for package replication'
-              uses: maddox/actions/sleep@master
-              with:
-                  args: 300
 
             # Create scratch org
             - name: Create scratch org
