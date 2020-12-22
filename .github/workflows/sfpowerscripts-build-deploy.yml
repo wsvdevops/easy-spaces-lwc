@@ -33,7 +33,7 @@ jobs:
               shell: bash
               run: |
                      echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
+                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
                      rm -f ./DEVHUB_SFDX_URL.txt
 
             # Create all packages
@@ -83,7 +83,7 @@ jobs:
               shell: bash
               run: |
                      echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
+                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
                      rm -f ./DEVHUB_SFDX_URL.txt
 
             # Create scratch org
@@ -132,7 +132,7 @@ jobs:
              shell: bash
              run: |
                      echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
+                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
                      rm -f ./DEVHUB_SFDX_URL.txt
                      
              # Create all packages
@@ -182,7 +182,7 @@ jobs:
                shell: bash
                run: |
                      echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
+                     sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
                      rm -f ./DEVHUB_SFDX_URL.txt
 
  
