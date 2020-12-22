@@ -70,7 +70,7 @@ jobs:
 
             # Install all new packages into scratch org
             - name: 'Install new package versions into scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratchorg'
+              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
 
    
             # Housekeeping
