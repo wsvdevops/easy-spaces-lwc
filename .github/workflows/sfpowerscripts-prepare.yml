@@ -48,7 +48,7 @@ jobs:
               run: 'sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
 
 
-            # Validate source and trigger test
-            - name: 'Push source to scratch org'
-              run: 'sfdx sfpowerscripts:orchestrate:prepare -t CI1 -v devhub --installall --installassourcepackages'
+            # Prepare a pool of scratch orgs
+            - name: 'Prepare a pool of scratch orgs'
+              run: 'sfdx sfpowerscripts:orchestrator:prepare -t CI1 -v devhub --installall --installassourcepackages -m 2'
 
