@@ -3,6 +3,7 @@ name: sfpowerscripts build and deploy
 
 # Definition when the workflow should run
 on:
+    workflow_dispatch:
     push:
         branches:
             - develop
@@ -89,7 +90,7 @@ jobs:
 
             # Install all new packages into scratch org
             - name: 'Install new package versions into scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org -d '
+              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
 
             # Housekeeping
             - name: Delete scratch org
