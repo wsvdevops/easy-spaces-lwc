@@ -47,6 +47,7 @@ jobs:
                  name: quickbuild-artifacts
                  path: artifacts
 
+    # Simulating a deploy to System Test Environment using a scratch org
     deploy:
         name: Deploy and Validate the packages
         runs-on: ubuntu-latest
@@ -119,14 +120,6 @@ jobs:
              uses: actions/checkout@v2
 
 
-            # Download Artifacts
-           - name: Download Artifacts
-             uses: actions/download-artifact@v2
-             with:
-                 name: build-artifacts
-                 path: artifacts
-
-
             # Authenticate to DevHub
            - name: 'Authenticate to DevHub'
              shell: bash
@@ -148,6 +141,7 @@ jobs:
  
     promote:
          runs-on: ubuntu-latest
+         if: always()
          needs: build
          name: Promote the packages
          steps:
