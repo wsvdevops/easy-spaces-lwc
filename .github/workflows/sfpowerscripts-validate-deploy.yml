@@ -6,11 +6,11 @@ on:
     push:
         branches:
             - develop
-        paths:
-            - 'es-base-code/**'
-            - 'es-base-objects/**'
-            - 'es-base-styles/**'
-            - 'es-space-mgmt/**'
+        # paths:
+        #     - 'es-base-code/**'
+        #     - 'es-base-objects/**'
+        #     - 'es-base-styles/**'
+        #     - 'es-space-mgmt/**'
 
 # Jobs to be executed
 jobs:
