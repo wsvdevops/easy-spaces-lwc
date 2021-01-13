@@ -28,13 +28,8 @@ jobs:
             # Checkout the code in the pull request
             - name: 'Checkout source code'
               uses: actions/checkout@v2
-
-
-
-            # Display all Git commits in the checked out repo
-            - name: 'Display git commits'
-              run: 'git log'
-
+              with:
+                fetch-depth: 0
 
             # Copy Dev Hub server key to file
             - name: 'Copy Dev Hub server key to file'
