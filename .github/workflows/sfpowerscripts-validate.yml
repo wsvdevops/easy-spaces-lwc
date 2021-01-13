@@ -31,6 +31,7 @@ jobs:
               with:
                 fetch-depth: 0
 
+
             # Copy Dev Hub server key to file
             - name: 'Copy Dev Hub server key to file'
               shell: bash
