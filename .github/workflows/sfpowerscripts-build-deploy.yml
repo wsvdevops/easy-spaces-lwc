@@ -22,7 +22,7 @@ jobs:
                   tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts
 
             # Checkout the code
             - name: 'Checkout source code'
@@ -77,7 +77,7 @@ jobs:
                   tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts
 
             # Authenticate dev hub
             - name: 'Authenticate Dev Hub'
@@ -113,7 +113,7 @@ jobs:
                   tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts
 
             # Checkout the code
             - name: 'Checkout source code'
@@ -154,7 +154,7 @@ jobs:
                   tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts
 
             # Checkout the code
             - name: 'Checkout source code'
