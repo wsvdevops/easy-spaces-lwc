@@ -38,4 +38,4 @@ jobs:
 
             # Prepare a pool of scratch orgs
             - name: 'Prepare a pool of scratch orgs'
-              run: 'sfdx sfpowerscripts:orchestrator:prepare -t CI1 -v devhub --installall --installassourcepackages -m 2'
+              run: 'sfdx sfpowerscripts:orchestrator:prepare -t CI1 -v devhub --installall --installassourcepackages -m 3'
