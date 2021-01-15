@@ -14,31 +14,29 @@ jobs:
     validate:
         runs-on: ubuntu-latest
         steps:
-           # Install sfdx and plugins
+            # Install sfdx and plugins
             - name: Install SFDX and Plugins
               run: |
-                     wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-                     mkdir sfdx-cli
-                     tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
-                     ./sfdx-cli/install
-                     echo 'y' | sfdx plugins:install sfpowerkit
-                     echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@alpha
-
+                  wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+                  mkdir sfdx-cli
+                  tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+                  ./sfdx-cli/install
+                  echo 'y' | sfdx plugins:install sfpowerkit
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
 
             # Checkout the code in the pull request
             - name: 'Checkout source code'
               uses: actions/checkout@v2
               with:
-                fetch-depth: 0
-
+                  fetch-depth: 0
 
             # Copy Dev Hub server key to file
             - name: 'Copy Dev Hub server key to file'
               shell: bash
-              run:  |
-                   echo "${SALESFORCE_JWT_SECRET_KEY}" > ./JWT_KEYFILE
+              run: |
+                  echo "${SALESFORCE_JWT_SECRET_KEY}" > ./JWT_KEYFILE
               env:
-                  SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }} 
+                  SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
 
             # Validate source and trigger test
             - name: 'Push source to scratch org'
