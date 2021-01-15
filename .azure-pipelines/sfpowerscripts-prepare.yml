@@ -32,7 +32,7 @@ steps:
   displayName: 'Install SFDX and Plugins'
 
 - script: |
-          sfdx force:auth:jwt:grant -u $(DEVHUB_USERNAME) -i $(DEVHUB_CLIENT_ID) -f $(devhubKey.secureFilePath) -a devhub -r https://login.salesforce.com
+          sfdx auth:jwt:grant -u $(DEVHUB_USERNAME) -i $(DEVHUB_CLIENT_ID) -f $(devhubKey.secureFilePath) -a devhub -r https://login.salesforce.com
   displayName: 'Authenticate DevHub'
 
 
