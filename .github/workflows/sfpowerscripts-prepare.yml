@@ -27,7 +27,7 @@ jobs:
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
                   sfdx plugins:install user
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@alpha
+                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@hotfix
 
             # Authenticate dev hub
             - name: 'Authenticate Dev Hub'
