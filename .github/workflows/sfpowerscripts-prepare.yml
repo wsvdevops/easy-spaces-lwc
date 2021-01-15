@@ -26,6 +26,7 @@ jobs:
                   tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
                   ./sfdx-cli/install
                   echo 'y' | sfdx plugins:install sfpowerkit
+                  sfdx plugins:install user
                   echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts@alpha
 
             # Authenticate dev hub
