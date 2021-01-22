@@ -7,7 +7,7 @@ Read more about sfpowerscripts at https://dxatscale.gitbook.io/sfpowerscripts/
 
 Steps:
 
-1. Please make sure you create, these unlocked packages first in your devhub before proceeding!
+1. Please make sure you create, these unlocked packages and its versions first in your devhub before proceeding usong regular sfdx commands!
 2. Install sfpowerkit locally
 3. Install sfpowerscripts in your local system
 4. Run sfdx sfpowerscripts:orchestrator:build -v devhub' from the project directory
