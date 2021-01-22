@@ -36,5 +36,5 @@ steps:
       displayName: 'Authenticate DevHub'
 
     - script: |
-          sfdx sfpowerscripts:orchestrator:prepare -t CI2 -v devhub --installall --installassourcepackages -m 2
+          sfdx sfpowerscripts:orchestrator:prepare -t CI2 -v devhub --installall --installassourcepackages -m 2 --succeedondeploymenterrors
       displayName: 'Prepare a pool of scratch orgs'
