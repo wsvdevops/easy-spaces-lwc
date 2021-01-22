@@ -7,10 +7,15 @@ Read more about sfpowerscripts at https://dxatscale.gitbook.io/sfpowerscripts/
 
 Steps:
 
-1. Please make sure you create, these unlocked packages and its versions first in your devhub before proceeding usong regular sfdx commands!
-2. Install sfpowerkit locally
-3. Install sfpowerscripts in your local system
-4. Run sfdx sfpowerscripts:orchestrator:build -v devhub' from the project directory
-5. Now use the sample pipelines to understand prepare, validate and deploy
+1. Ensure the pre-requisites are place in your DevHub
+   - Enable DevHub
+   - Enable 2GP Packaging
+   - Install the necessary prerequisites for scratch org pooling, especially Step 1. Read more from https://github.com/Accenture/sfpowerkit/wiki/Getting-started-with-ScratchOrg-Pooling
+   
+2. Please make sure you create, these unlocked packages and its versions first in your devhub before proceeding usong regular sfdx commands!
+3. Install sfpowerkit locally
+4. Install sfpowerscripts in your local system
+5. Run sfdx sfpowerscripts:orchestrator:build -v devhub' from the project directory
+6. Now use the sample pipelines to understand prepare, validate and deploy
 
 Fork it! and test it yourself
