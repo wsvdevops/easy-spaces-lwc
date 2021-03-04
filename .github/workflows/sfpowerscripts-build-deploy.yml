@@ -33,7 +33,10 @@ jobs:
             # Create all packages
             - name: 'Create packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:quickbuild -v devhub'
+              run: |
+                  pwd
+                  sfdx sfpowerscripts:orchestrator:quickbuild -v devhub
+              working-directory: ${GITHUB_WORKSPACE}
 
             # Publish artifacts
             - uses: actions/upload-artifact@v2
