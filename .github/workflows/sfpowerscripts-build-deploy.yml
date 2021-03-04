@@ -12,7 +12,7 @@ on:
 jobs:
     quickbuild:
         name: QuickBuild the packages
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest:alpha
         container: dxatscale/sfpowerscripts
         steps:
             # Checkout the code
