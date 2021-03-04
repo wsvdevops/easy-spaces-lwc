@@ -36,7 +36,6 @@ jobs:
               run: |
                   pwd
                   sfdx sfpowerscripts:orchestrator:quickbuild -v devhub
-              working-directory: ${GITHUB_WORKSPACE}
 
             # Publish artifacts
             - uses: actions/upload-artifact@v2
