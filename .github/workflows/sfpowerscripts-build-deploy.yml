@@ -13,7 +13,7 @@ jobs:
     quickbuild:
         name: QuickBuild the packages
         runs-on: ubuntu-latest
-        container: dxatscale/sfpowerscripts:alpha
+        container: dxatscale/sfpowerscripts
         steps:
             # Checkout the code
             - name: 'Checkout source code'
