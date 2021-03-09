@@ -24,7 +24,7 @@
             "dependencies": [
                 {
                     "package": "ESObjects",
-                    "versionNumber": "50.0.3.LATEST"
+                    "versionNumber": "50.0.2.LATEST"
                 }
             ]
         },
@@ -38,15 +38,15 @@
             "dependencies": [
                 {
                     "package": "ESObjects",
-                    "versionNumber": "50.0.3.LATEST"
+                    "versionNumber": "50.0.2.LATEST"
                 },
                 {
                     "package": "ESBaseCodeLWC",
-                    "versionNumber": "50.0.3.LATEST"
+                    "versionNumber": "50.0.2.LATEST"
                 },
                 {
                     "package": "ESBaseStylesLWC",
-                    "versionNumber": "50.0.3.LATEST"
+                    "versionNumber": "50.0.2.LATEST"
                 }
             ]
         }
