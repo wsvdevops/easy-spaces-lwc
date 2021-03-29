@@ -43,6 +43,32 @@ jobs:
                   name: quickbuild-artifacts
                   path: artifacts
 
+    publish:
+        name: Publish artifacts to GitHub Packages
+        runs-on: ubuntu-latest
+        container: dxatscale/sfpowerscripts
+        needs: quickbuild
+        steps:
+            - name: Download Artifacts
+              uses: actions/download-artifact@v2
+              with:
+                  name: validate-artifacts
+                  path: artifacts
+
+            - name: Set NPM registry
+              run: |
+                  npm set registry https://npm.pkg.github.com
+
+            - name: Authenticate to NPM registry
+              run: |
+                  echo "//npm.pkg.github.com/:_authToken=${AUTH_TOKEN}" >> ~/.npmrc
+              env:
+                  AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish
+              run: |
+                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale
+
     # Simulating a deploy to System Test Environment using a scratch org
     deploy:
         name: Deploy and Validate the packages
@@ -115,32 +141,6 @@ jobs:
               with:
                   name: validated-artifacts
                   path: artifacts
-
-    publish:
-        name: Publish artifacts to GitHub Packages
-        runs-on: ubuntu-latest
-        container: dxatscale/sfpowerscripts:alpha
-        needs: build
-        steps:
-            - name: Download Artifacts
-              uses: actions/download-artifact@v2
-              with:
-                  name: validate-artifacts
-                  path: artifacts
-
-            - name: Set NPM registry
-              run: |
-                  npm set registry https://npm.pkg.github.com
-
-            - name: Authenticate to NPM registry
-              run: |
-                  echo "//npm.pkg.github.com/:_authToken=${AUTH_TOKEN}" >> ~/.npmrc
-              env:
-                  AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Publish
-              run: |
-                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale
 
     promote:
         runs-on: ubuntu-latest
