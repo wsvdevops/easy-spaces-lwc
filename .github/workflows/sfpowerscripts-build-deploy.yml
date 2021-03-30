@@ -159,7 +159,7 @@ jobs:
             - name: Download Artifacts
               uses: actions/download-artifact@v2
               with:
-                  name: validate-artifacts
+                  name: validated-artifacts
                   path: artifacts
 
             - name: Set NPM registry
