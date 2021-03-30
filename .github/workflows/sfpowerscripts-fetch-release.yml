@@ -1,5 +1,5 @@
 # Unique name for this workflow
-name: sfpowerscripts fetch and deploy
+name: sfpowerscripts fetch and release
 
 # Definition when the workflow should run
 on:

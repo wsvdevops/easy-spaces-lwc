@@ -1,0 +1,6 @@
+release: "myrelease"
+artifacts:
+  ESObjects: latest
+  ESBaseStylesLWC: latest
+  ESBaseCodeLWC: latest
+  ESSpaceMgmtLWC: latest
