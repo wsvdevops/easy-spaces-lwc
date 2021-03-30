@@ -146,26 +146,26 @@ stages:
                   inputs:
                       script: 'sfdx sfpowerscripts:orchestrator:promote -v devhub'
 
-      - stage: Publish
-        displayName: "Publish artifacts to NPM registry"
-        dependsOn: Build
-        jobs:
-            - job: PublishJob
-              displayName: 'Publish artifacts to NPM registry'
-              pool:
-                  vmImage: 'ubuntu-latest'
-              container: dxatscale/sfpowerscripts:latest
-              steps:
-                - task: DownloadBuildArtifacts@0
-                  inputs:
-                      artifactName: 'validated-artifacts'
-                      downloadPath: 'artifacts'
+    - stage: Publish
+      displayName: "Publish artifacts to NPM registry"
+      dependsOn: Build
+      jobs:
+          - job: PublishJob
+            displayName: 'Publish artifacts to NPM registry'
+            pool:
+                vmImage: 'ubuntu-latest'
+            container: dxatscale/sfpowerscripts:latest
+            steps:
+              - task: DownloadBuildArtifacts@0
+                inputs:
+                    artifactName: 'validated-artifacts'
+                    downloadPath: 'artifacts'
 
-                - task: DownloadSecureFile@1
-                  name: npmrc
-                  inputs:
-                    secureFile: .npmrc
+              - task: DownloadSecureFile@1
+                name: npmrc
+                inputs:
+                  secureFile: .npmrc
 
-                - script: |
-                    sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale --npmrcpath $(npmrc.secureFilePath)
-                  displayName: 'Publish artifacts to NPM registry'
+              - script: |
+                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale --npmrcpath $(npmrc.secureFilePath)
+                displayName: 'Publish artifacts to NPM registry'
