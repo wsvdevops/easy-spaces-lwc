@@ -1,7 +1,7 @@
 # Easy Spaces Lightning Web Components Sample Application using sfpowerscripts Orchestrator
 
 This repo demonstrates how sfpowerscripts orchestrator can be used across lifecycle of your project.
-Sample pipelines are available for GitHub Actions and Azure Pipelines.
+Sample pipelines are available for [GitHub Actions](https://github.com/dxatscale/easy-spaces-lwc/tree/develop/.github/workflows) and [Azure Pipelines](https://github.com/dxatscale/easy-spaces-lwc/tree/develop/.azure-pipelines).
 
 Read more about sfpowerscripts at https://dxatscale.gitbook.io/sfpowerscripts/
 
