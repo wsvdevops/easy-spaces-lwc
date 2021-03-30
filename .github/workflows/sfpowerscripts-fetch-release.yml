@@ -2,11 +2,7 @@
 name: sfpowerscripts fetch and release
 
 # Definition when the workflow should run
-on:
-    workflow_dispatch:
-    push:
-        branches:
-            - develop
+on: workflow_dispatch
 
 # Jobs to be executed
 jobs:
