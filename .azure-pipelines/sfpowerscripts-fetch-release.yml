@@ -1,5 +1,7 @@
 name: Fetch and Release
 
+trigger: none
+
 stages:
     - stage: release
       displayName: release
