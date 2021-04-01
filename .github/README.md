@@ -1,11 +1,23 @@
-![image](https://user-images.githubusercontent.com/36793262/112931849-9eb1a280-9168-11eb-9927-19e83f790cef.png)
+Easy Spaces Lightning Web Components Sample Application using sfpowerscripts Orchestrator
+This repo demonstrates how sfpowerscripts orchestrator can be used across lifecycle of your project. Sample pipelines are available for GitHub Actions and Azure Pipelines.
 
-This repo contains the follwing YAML based Azure Pipeline defintions
+Read more about sfpowerscripts at https://dxatscale.gitbook.io/sfpowerscripts/
 
-sfpowerscripts-prepare.yml Pipeline demonstrating how prepare command is used to build scratch org pools
+Steps:
 
-sfpowerscripts-validate.yml Pull Request Validation Pipeline, that validates incoming changes against a scratch org fetched from the pool
+- Ensure the pre-requisites are place in your DevHub
 
-sfpowercripts-build-deploy.yml Pipeline that gets triggered on a merge to the trunk, resulting in building a set of packages, deploying to scratch org to validate (in real life scenarios, you would replace this with a sandbox) and then build a set of validated packages and finally publis that to artifact repository
+- Enable DevHub
+- Enable 2GP Packaging
+- Install the necessary pre-requisites for scratch org pooling, especially Step 1. Read more from https://github.com/Accenture/sfpowerkit/wiki/Getting-started-with-ScratchOrg-Pooling
+Please make sure you create these unlocked packages and its versions first in your devhub before proceeding using regular sfdx commands!
 
-sfpowerscripts-fetch-release.yml A release pipeline that utilizes the release defintion to fetch artifacts from artifactory and then deploy to a sandbox (simulated using scratch org for example purposes)
+- Install sfpowerkit locally
+
+- Install sfpowerscripts in your local system
+
+- Run sfdx sfpowerscripts:orchestrator:build -v devhub from the project directory
+
+- Now use the sample pipelines to understand prepare, validate and deploy
+
+Fork it! and test it yourself
