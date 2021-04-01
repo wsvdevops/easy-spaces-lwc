@@ -10,13 +10,12 @@ Steps:
 - Enable DevHub
 - Enable 2GP Packaging
 - Install the necessary pre-requisites for scratch org pooling, especially Step 1. Read more from https://github.com/Accenture/sfpowerkit/wiki/Getting-started-with-ScratchOrg-Pooling
-Please make sure you create these unlocked packages and its versions first in your devhub before proceeding using regular sfdx commands!
 
 - Install sfpowerkit locally
 
 - Install sfpowerscripts in your local system
 
-- Run sfdx sfpowerscripts:orchestrator:build -v devhub from the project directory
+- Run sfdx sfpowerscripts:orchestrator:build -v devhub from the project directory (Please make sure you create these unlocked packages and its versions first in your devhub before proceeding using regular sfdx commands!)
 
 - Now use the sample pipelines to understand prepare, validate and deploy
 
