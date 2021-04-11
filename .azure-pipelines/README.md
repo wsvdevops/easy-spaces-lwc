@@ -13,3 +13,15 @@ This repo contains the follwing YAML based Azure Pipeline defintions
 
 - sfpowerscripts-fetch-release.yml
    A release pipeline that utilizes the release defintion to fetch artifacts from artifactory and then deploy to a sandbox (simulated using scratch org for example purposes)
+
+
+
+The sample pipelines utilise an azure pipelines variable group called DEVHUB which contains the following variables. As a prerequisite, this has to be setup manually
+- DEVHUB_USERNAME   : The username of the DevHub org
+- DEVHUB_CLIENT_ID  : The client id of the connected app that is used to authenticate a JWT based authentication to the DevHub
+
+A secure file should also be placed in the library which is the public key file used for JWT authentication
+- DEVHUB_SERVER_KEY : A file that contains the key used for JWT server authentication
+
+For more information, follow the links here https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm
+
