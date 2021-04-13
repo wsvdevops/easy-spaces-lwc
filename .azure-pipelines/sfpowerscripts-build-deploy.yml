@@ -36,19 +36,24 @@ stages:
                       PathtoPublish: 'artifacts'
                       ArtifactName: 'quickbuild-artifacts'
                       publishLocation: 'Container'
-
+                      
+#Utilizes a deployment job to make use of environments feature for exclusive lock
     - stage: Deploy
       displayName: 'Deploy and Validate the packages'
       dependsOn: QuickBuild
       jobs:
-          - job: DeployJob
+          - deployment: deploy
+            environment: 'deploy'
             displayName: 'Deploy the packages'
             variables:
               - group: DEVHUB
             pool:
                 vmImage: 'ubuntu-latest'
             container: dxatscale/sfpowerscripts:latest
-            steps:
+            strategy:
+             runOnce:
+              deploy:
+               steps:
                 - checkout: self
 
                 - task: DownloadBuildArtifacts@0
@@ -81,18 +86,23 @@ stages:
                   inputs:
                       script: 'sfdx force:org:delete -p -u scratch-org'
 
+#Utilizes a deployment job to make use of environments feature for exclusive lock
     - stage: Build
       displayName: 'Build Production Ready Packages'
       dependsOn: Deploy
       jobs:
-          - job: BuildJob
+          - deployment : BuildJob 
+            environment: build
             displayName: 'Build the packages'
             variables:
                 group: DEVHUB
             pool:
                 vmImage: 'ubuntu-latest'
             container: dxatscale/sfpowerscripts:latest
-            steps:
+            strategy:
+             runOnce:
+              deploy:
+               steps:
                 - checkout: self
                 - task: DownloadSecureFile@1
                   name: devhubKey
