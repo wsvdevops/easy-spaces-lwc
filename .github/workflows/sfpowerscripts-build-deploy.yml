@@ -58,7 +58,7 @@ jobs:
     
     #Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
     #on pipelines and in this model, build should be run sequentially
-            - name: action turnstyle
+            - name: Wait till previous pipeline has finished this stage
               uses: softprops/turnstyle@v0.1.5
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -113,6 +113,15 @@ jobs:
                   rm -f ./JWT_KEYFILE
               env:
                   SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
+
+#Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
+#on pipelines and in this model, build should be run sequentially
+            - name: Wait till previous pipeline has finished this stage
+              uses: softprops/turnstyle@v0.1.5
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                abort-after-seconds: 1800
 
               # Create all packages
             - name: 'Create packages'
