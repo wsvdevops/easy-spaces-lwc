@@ -55,6 +55,15 @@ jobs:
               uses: actions/checkout@v2
               with:
                   fetch-depth: 0
+    
+    #Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
+    #on pipelines and in this model, build should be run sequentially
+            - name: action turnstyle
+              uses: softprops/turnstyle@v0.1.5
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                abort-after-seconds: 1800
 
               # Download Artifacts
             - name: Download Artifacts
