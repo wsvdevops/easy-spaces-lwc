@@ -172,7 +172,7 @@ jobs:
         name: Publish artifacts to GitHub Packages
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
-        needs: build
+        needs: promote
         steps:
             - name: Download Artifacts
               uses: actions/download-artifact@v2
