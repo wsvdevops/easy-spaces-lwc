@@ -180,6 +180,12 @@ jobs:
         container: dxatscale/sfpowerscripts
         needs: promote
         steps:
+            # Checkout the code
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+
             - name: Download Artifacts
               uses: actions/download-artifact@v2
               with:
