@@ -166,7 +166,13 @@ jobs:
             # Promoted all packages
             - name: 'Promote packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:promote -v devhub -o artifacts'
+              run: 'sfdx sfpowerscripts:orchestrator:promote -v devhub -o promoted-artifacts'
+
+            # Publish artifacts
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: promoted-artifacts
+                  path: promoted-artifacts
 
     publish:
         name: Publish artifacts to GitHub Packages
@@ -177,8 +183,8 @@ jobs:
             - name: Download Artifacts
               uses: actions/download-artifact@v2
               with:
-                  name: validated-artifacts
-                  path: artifacts
+                  name: promoted-artifacts
+                  path: promoted-artifacts
 
             - name: Set NPM registry
               run: |
@@ -192,4 +198,4 @@ jobs:
 
             - name: Publish
               run: |
-                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale --gittag --pushgittag
+                  sfdx sfpowerscripts:orchestrator:publish -d promoted-artifacts --npm --scope dxatscale --gittag --pushgittag
