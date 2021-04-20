@@ -4,3 +4,5 @@ artifacts:
   ESBaseStylesLWC: latest
   ESBaseCodeLWC: latest
   ESSpaceMgmtLWC: latest
+releaseOptions:
+  baselineOrg: "prod"

@@ -35,7 +35,7 @@ jobs:
               id: sfpowerscripts-build
               run: |
                   pwd
-                  sfdx sfpowerscripts:orchestrator:quickbuild -v devhub
+                  sfdx sfpowerscripts:orchestrator:quickbuild -v devhub --diffcheck
 
             # Publish artifacts
             - uses: actions/upload-artifact@v2
@@ -55,7 +55,7 @@ jobs:
               uses: actions/checkout@v2
               with:
                   fetch-depth: 0
-    
+
     #Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
     #on pipelines and in this model, build should be run sequentially
             - name: Wait till previous pipeline has finished this stage
@@ -126,7 +126,7 @@ jobs:
               # Create all packages
             - name: 'Create packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub'
+              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck'
 
               # Publish artifacts
             - uses: actions/upload-artifact@v2
@@ -192,4 +192,4 @@ jobs:
 
             - name: Publish
               run: |
-                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale
+                  sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale --gittag --pushgittag
