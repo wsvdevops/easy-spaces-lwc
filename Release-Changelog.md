@@ -1,4 +1,4 @@
-[![test-evuwo1psfr2j@example.com-release-1-1(1)-green](https://img.shields.io/static/v1?label=test-evuwo1psfr2j@example.com&message=release-1-1(1)&color=green)](#975c78d55ef4dce9621dfb61b6349d463e7003d0) 
+[![test-evuwo1psfr2j@example.com-release-1-1(2)-green](https://img.shields.io/static/v1?label=test-evuwo1psfr2j@example.com&message=release-1-1(2)&color=green)](#975c78d55ef4dce9621dfb61b6349d463e7003d0) 
 <a id=975c78d55ef4dce9621dfb61b6349d463e7003d0></a>
 # release-1-1
 ### Artifacts :package:
