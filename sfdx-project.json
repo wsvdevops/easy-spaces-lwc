@@ -4,9 +4,8 @@
             "path": "./es-base-objects",
             "package": "ESObjects",
             "versionName": "Base Objects - Winter '21",
-            "versionNumber": "50.0.5.NEXT",
-            "default": false,
-            "assignPermSetsPostDeployment":[ "EasySpacesObjects" ]
+            "versionNumber": "50.1.5.NEXT",
+            "default": false
         },
         {
             "path": "./es-base-styles",
