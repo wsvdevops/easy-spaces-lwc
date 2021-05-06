@@ -126,7 +126,7 @@ jobs:
               # Create all packages
             - name: 'Create packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck' --branch develop
+              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck --branch develop'
 
               # Publish artifacts
             - uses: actions/upload-artifact@v2
