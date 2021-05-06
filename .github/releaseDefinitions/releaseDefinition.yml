@@ -4,7 +4,7 @@ artifacts:
   ESObjects: develop
   ESBaseStylesLWC: develop
   ESBaseCodeLWC: develop
-  ESSpaceMgmtLWC: develop@
+  ESSpaceMgmtLWC: develop
 #Added a package dependency to demonstrate how dependencies get installed
 packageDependencies:
   sfpowerscripts_artifact: 04t1P000000ka0fQAA 
