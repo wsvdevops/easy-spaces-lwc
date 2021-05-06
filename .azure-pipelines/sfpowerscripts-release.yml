@@ -37,7 +37,7 @@ stages:
                 - task: CmdLine@2
                   displayName: 'Deploy packages to scratch org'
                   inputs:
-                      script: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .azure-pipelines/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
+                      script: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .azure-pipelines/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --npmrcpath $(npmrc.secureFilePath) --generatechangelog'
 
                 - task: CmdLine@2
                   displayName: 'Delete scratch org'
