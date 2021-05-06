@@ -35,7 +35,7 @@ jobs:
               id: sfpowerscripts-build
               run: |
                   pwd
-                  sfdx sfpowerscripts:orchestrator:quickbuild -v devhub --diffcheck
+                  sfdx sfpowerscripts:orchestrator:quickbuild -v devhub --diffcheck --branch develop
 
             # Publish artifacts
             - uses: actions/upload-artifact@v2
@@ -126,7 +126,7 @@ jobs:
               # Create all packages
             - name: 'Create packages'
               id: sfpowerscripts-build
-              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck'
+              run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck' --branch develop
 
               # Publish artifacts
             - uses: actions/upload-artifact@v2
