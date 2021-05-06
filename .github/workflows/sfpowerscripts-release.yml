@@ -1,5 +1,5 @@
 # Unique name for this workflow
-name: sfpowerscripts fetch and release
+name: sfpowerscripts release
 
 # Definition when the workflow should run
 on: workflow_dispatch
@@ -26,8 +26,6 @@ jobs:
               env:
                   AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: 'Fetch artifacts from NPM registry'
-              run: 'sfdx sfpowerscripts:artifacts:fetch -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale'
 
             # Authenticate dev hub
             - name: 'Authenticate Dev Hub'
@@ -41,9 +39,9 @@ jobs:
             - name: Create scratch org
               run: sfdx force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1 -v devhub
 
-            # Install all new packages into scratch org
-            - name: 'Install fetched artifacts into scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
+            # Release to scratch org
+            - name: 'Release to scratch org'
+              run: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
 
             # Housekeeping
             - name: Delete scratch org

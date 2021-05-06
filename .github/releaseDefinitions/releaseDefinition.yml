@@ -1,8 +1,12 @@
-release: "myrelease"
+release: "Release-1.0"
+skipIfAlreadyInstalled: true
 artifacts:
-  ESObjects: latest
-  ESBaseStylesLWC: latest
-  ESBaseCodeLWC: latest
-  ESSpaceMgmtLWC: latest
-releaseOptions:
-  baselineOrg: "prod"
+  ESObjects: develop
+  ESBaseStylesLWC: develop
+  ESBaseCodeLWC: develop
+  ESSpaceMgmtLWC: develop
+packageDependencies:
+  Marketing Cloud: 04t0H000000xVrw
+changelog:
+  repoUrl: "https://github.com/dxatscale/easy-spaces-lwc.git"
+  workItemFilter: "BRO-[0-9]{3,4}"
