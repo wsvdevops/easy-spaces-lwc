@@ -155,7 +155,13 @@ stages:
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
                   inputs:
-                      script: 'sfdx sfpowerscripts:orchestrator:promote -v devhub'
+                      script: 'sfdx sfpowerscripts:orchestrator:promote -v devhub -o promoted-artifacts'
+
+                - task: PublishBuildArtifacts@1
+                  inputs:
+                      PathtoPublish: 'promoted-artifacts'
+                      ArtifactName: 'promoted-artifacts'
+                      publishLocation: 'Container'
 
     - stage: Publish
       displayName: "Publish artifacts to NPM registry"
@@ -169,7 +175,7 @@ stages:
             steps:
               - task: DownloadBuildArtifacts@0
                 inputs:
-                    artifactName: 'validated-artifacts'
+                    artifactName: 'promoted-artifacts'
                     downloadPath: 'artifacts'
 
               - task: DownloadSecureFile@1
