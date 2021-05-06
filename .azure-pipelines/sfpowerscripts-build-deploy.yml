@@ -30,14 +30,14 @@ stages:
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
                   inputs:
-                      script: 'sfdx sfpowerscripts:orchestrator:quickbuild -v devhub'
+                      script: 'sfdx sfpowerscripts:orchestrator:quickbuild -v devhub --branch develop_azure'
 
                 - task: PublishBuildArtifacts@1
                   inputs:
                       PathtoPublish: 'artifacts'
                       ArtifactName: 'quickbuild-artifacts'
                       publishLocation: 'Container'
-                      
+
 #Utilizes a deployment job to make use of environments feature for exclusive lock
     - stage: Deploy
       displayName: 'Deploy and Validate the packages'
@@ -92,7 +92,7 @@ stages:
       displayName: 'Build Production Ready Packages'
       dependsOn: Deploy
       jobs:
-          - deployment : BuildJob 
+          - deployment : BuildJob
             environment: build
             displayName: 'Build the packages'
             variables:
@@ -117,7 +117,7 @@ stages:
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
                   inputs:
-                      script: 'sfdx sfpowerscripts:orchestrator:build -v devhub'
+                      script: 'sfdx sfpowerscripts:orchestrator:build -v devhub --branch develop_azure'
 
                 - task: PublishBuildArtifacts@1
                   inputs:

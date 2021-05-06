@@ -1,4 +1,4 @@
-name: Fetch and Release
+name: Release
 
 trigger: none
 pr: none
@@ -26,10 +26,6 @@ stages:
                       secureFile: 'DEVHUB_SERVER_KEY'
 
                 - script: |
-                      sfdx sfpowerscripts:artifacts:fetch -p .azure-pipelines/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --npmrcpath $(npmrc.secureFilePath)
-                  displayName: 'Fetch artifacts from NPM registry'
-
-                - script: |
                       sfdx auth:jwt:grant -u $(DEVHUB_USERNAME) -i $(DEVHUB_CLIENT_ID) -f $(devhubKey.secureFilePath) -a devhub -r https://login.salesforce.com
                   displayName: 'Authenticate DevHub'
 
@@ -41,7 +37,7 @@ stages:
                 - task: CmdLine@2
                   displayName: 'Deploy packages to scratch org'
                   inputs:
-                      script: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
+                      script: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .azure-pipelines/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
 
                 - task: CmdLine@2
                   displayName: 'Delete scratch org'
