@@ -31,6 +31,7 @@ jobs:
                   SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
 
             # Create all packages
+            # In practice, --branch flag should be passed the environment variable for the source branch
             - name: 'Create packages'
               id: sfpowerscripts-build
               run: |
@@ -124,6 +125,7 @@ jobs:
                 abort-after-seconds: 1800
 
               # Create all packages
+              # In practice, --branch flag should be passed the environment variable for the source branch
             - name: 'Create packages'
               id: sfpowerscripts-build
               run: 'sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck --branch develop_github'

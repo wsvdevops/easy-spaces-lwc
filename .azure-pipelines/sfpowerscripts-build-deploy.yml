@@ -27,6 +27,7 @@ stages:
                       sfdx auth:jwt:grant -u $(DEVHUB_USERNAME) -i $(DEVHUB_CLIENT_ID) -f $(devhubKey.secureFilePath) -a devhub -r https://login.salesforce.com
                   displayName: 'Authenticate DevHub'
 
+                # In practice, --branch flag should be passed the environment variable for the source branch
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
                   inputs:
@@ -114,6 +115,7 @@ stages:
                       sfdx auth:jwt:grant -u $(DEVHUB_USERNAME) -i $(DEVHUB_CLIENT_ID) -f $(devhubKey.secureFilePath) -a devhub -r https://login.salesforce.com
                   displayName: 'Authenticate DevHub'
 
+                # In practice, --branch flag should be passed the environment variable for the source branch
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
                   inputs:
