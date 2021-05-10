@@ -1,6 +1,7 @@
 # Prepare a pool of scratch orgs
 
 trigger: none
+pr: none
 
 schedules:
     - cron: '0 0 * * *'
@@ -16,7 +17,7 @@ pool:
 container: dxatscale/sfpowerscripts:latest
 
 variables:
-    group: DEVHUB
+  - group: DEVHUB
 
 steps:
     - task: DownloadSecureFile@1

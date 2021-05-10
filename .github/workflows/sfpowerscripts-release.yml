@@ -1,0 +1,49 @@
+# Unique name for this workflow
+name: sfpowerscripts release
+
+# Definition when the workflow should run
+on: workflow_dispatch
+
+# Jobs to be executed
+jobs:
+    promote:
+        name: release
+        runs-on: ubuntu-latest
+        container: dxatscale/sfpowerscripts
+        steps:
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+
+            - name: Set NPM registry
+              run: |
+                  npm set registry https://npm.pkg.github.com
+
+            - name: Authenticate to NPM registry
+              run: |
+                  echo "//npm.pkg.github.com/:_authToken=${AUTH_TOKEN}" >> ~/.npmrc
+              env:
+                  AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+            # Authenticate dev hub
+            - name: 'Authenticate Dev Hub'
+              run: |
+                  echo "${SALESFORCE_JWT_SECRET_KEY}" > ./JWT_KEYFILE
+                  sfdx auth:jwt:grant -u ${{ secrets.DEVHUB_USERNAME }} -i ${{ secrets.DEVHUB_CLIENT_ID }} -f ./JWT_KEYFILE -a devhub -r https://login.salesforce.com
+              env:
+                  SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
+
+            # Create scratch org
+            - name: Create scratch org
+              run: sfdx force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1 -v devhub
+
+            # Release to scratch org
+            - name: 'Release to scratch org'
+              run: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
+
+            # Housekeeping
+            - name: Delete scratch org
+              if: always()
+              run: sfdx force:org:delete -p -u scratch-org
