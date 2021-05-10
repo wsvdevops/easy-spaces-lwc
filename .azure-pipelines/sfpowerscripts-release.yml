@@ -14,6 +14,7 @@ stages:
             container: dxatscale/sfpowerscripts:latest
             steps:
                 - checkout: self
+                  persistCredentials: true
 
                 - task: DownloadSecureFile@1
                   name: npmrc
