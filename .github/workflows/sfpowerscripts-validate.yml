@@ -13,13 +13,8 @@ on:
 jobs:
     validate:
         runs-on: ubuntu-latest
+        container: dxatscale/sfpowerscripts
         steps:
-            # Install sfdx and plugins
-            - name: Install SFDX and Plugins
-              run: |
-                  npm i sfdx-cli -g 
-                  echo 'y' | sfdx plugins:install sfpowerkit
-                  echo 'y' | sfdx plugins:install @dxatscale/sfpowerscripts
             # Checkout the code in the pull request
             - name: 'Checkout source code'
               uses: actions/checkout@v2
