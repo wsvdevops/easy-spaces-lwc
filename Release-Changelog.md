@@ -1,4 +1,27 @@
-[![test-evuwo1psfr2j@example.com-release-1-1(3)-green](https://img.shields.io/static/v1?label=test-evuwo1psfr2j@example.com&message=release-1-1(3)&color=green)](#975c78d55ef4dce9621dfb61b6349d463e7003d0) 
+[![test-evuwo1psfr2j@example.com-release-1-1(3)-green](https://img.shields.io/static/v1?label=test-evuwo1psfr2j@example.com&message=release-1-1(3)&color=green)](#975c78d55ef4dce9621dfb61b6349d463e7003d0) [![so1-release-2.1-2(0)-green](https://img.shields.io/static/v1?label=so1&message=release-2.1-2(0)&color=green)](#6530fc9a48880050588ada6e37e213da26fc1b25) 
+<a id=6530fc9a48880050588ada6e37e213da26fc1b25></a>
+# release-2.1-2
+### Artifacts :package:
+- **ESBaseCodeLWC**     v50.0.5.24 (2dbd257a)
+
+- **ESBaseStylesLWC**     v50.0.5.25 (2dbd257a)
+
+- **ESObjects**     v50.0.5.25 (2dbd257a)
+
+- **ESSpaceMgmtLWC**     v50.0.4.20 (2dbd257a)
+
+### Work Items :gem:
+N/A
+
+### Commits :book:
+N/A
+
+Artifacts with no changes:
+  - ESBaseCodeLWC
+  - ESBaseStylesLWC
+  - ESObjects
+  - ESSpaceMgmtLWC
+
 <a id=975c78d55ef4dce9621dfb61b6349d463e7003d0></a>
 # release-1-1
 ### Artifacts :package:
