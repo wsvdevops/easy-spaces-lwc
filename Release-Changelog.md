@@ -1,6 +1,6 @@
-[![scratch-org-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=scratch-org&message=Release-1.0-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) [![so1-release-2.1-1(0)-green](https://img.shields.io/static/v1?label=so1&message=release-2.1-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) [![sit-release-2.1-1(0)-green](https://img.shields.io/static/v1?label=sit&message=release-2.1-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) 
+[![DEV-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=DEV&message=Release-1.0-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) [![SIT-release-1.0-1(0)-green](https://img.shields.io/static/v1?label=SIT&message=release-1.0-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) [![PROD-release-1.0-1(0)-green](https://img.shields.io/static/v1?label=PROD&message=release-1.0-1(0)&color=green)](#7df66f58e93be435fcb22019c2efe0827f2862ad) 
 <a id=7df66f58e93be435fcb22019c2efe0827f2862ad></a>
-# Release-1.0-1/release-2.1-1
+# Release-1.0-1
 ### Artifacts :package:
 - **ESBaseCodeLWC**     v50.0.6.16 (2bc11f53)
 
@@ -11,7 +11,12 @@
 - **ESSpaceMgmtLWC**     v50.0.5.17 (2bc11f53)
 
 ### Work Items :gem:
-N/A
+- APA-6
+- APA-178
+- APA-162
+- APA-158
+- APA-150
+- APA-144
 
 ### Commits :book:
 
