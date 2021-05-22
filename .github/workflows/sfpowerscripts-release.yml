@@ -42,7 +42,7 @@ jobs:
               run: sfdx force:org:create -f config/project-scratch-def.json -a ST -s -d 1 -v devhub
 
             # Release to environment
-            - name: 'Release to SIT'
+            - name: 'Release to ST'
               run: 'sfdx sfpowerscripts:orchestrator:release -u ST -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
 
 
