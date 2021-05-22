@@ -93,7 +93,7 @@ jobs:
         needs: deploy
         concurrency:
            group: build_publish
-           cancel-in-progress:true
+           cancel-in-progress: true
         environment:
           name: build
         steps:
@@ -131,7 +131,7 @@ jobs:
         needs: build
         concurrency:
            group: build_publish
-           cancel-in-progress:true
+           cancel-in-progress: true
         steps:
             # Checkout the code
             - name: 'Checkout source code'
