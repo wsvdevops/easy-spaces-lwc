@@ -99,6 +99,8 @@ jobs:
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
         needs: deploy
+        environment:
+          name: build
         steps:
             # Checkout the code
             - name: 'Checkout source code'
