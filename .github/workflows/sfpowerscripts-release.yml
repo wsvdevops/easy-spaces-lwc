@@ -10,6 +10,8 @@ jobs:
         name: release
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
+        environment:
+           name: ST
         steps:
             - name: 'Checkout source code'
               uses: actions/checkout@v2
@@ -35,15 +37,12 @@ jobs:
               env:
                   SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
 
-            # Create scratch org
-            - name: Create scratch org
-              run: sfdx force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1 -v devhub
+            # Create scratch org with alias ST to simulate a sandbox Authenticate to envirionment instead
+            - name: Authenticate to Environment
+              run: sfdx force:org:create -f config/project-scratch-def.json -a ST -s -d 1 -v devhub
 
-            # Release to scratch org
-            - name: 'Release to scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:release -u scratch-org -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
+            # Release to environment
+            - name: 'Release to SIT'
+              run: 'sfdx sfpowerscripts:orchestrator:release -u ST -p .github/releaseDefinitions/releaseDefinition.yml --npm --scope dxatscale --generatechangelog'
 
-            # Housekeeping
-            - name: Delete scratch org
-              if: always()
-              run: sfdx force:org:delete -p -u scratch-org
+
