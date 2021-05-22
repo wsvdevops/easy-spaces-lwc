@@ -12,8 +12,6 @@ stages:
             pool:
                 vmImage: 'ubuntu-latest'
             container: dxatscale/sfpowerscripts:latest
-            environment:
-               name: ST
             steps:
                 - checkout: self
                   persistCredentials: true
