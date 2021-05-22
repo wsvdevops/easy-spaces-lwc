@@ -44,27 +44,19 @@ jobs:
                   name: quickbuild-artifacts
                   path: artifacts
 
-    # Simulating a deploy to System Test Environment using a scratch org
+    # Simulating a deploy to Dev Environment using a scratch org
     deploy:
         name: Deploy and Validate the packages
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
         needs: quickbuild
+        concurrency: deploy_dev
         steps:
             # Checkout the code
             - name: 'Checkout source code'
               uses: actions/checkout@v2
               with:
                   fetch-depth: 0
-
-    #Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
-    #on pipelines and in this model, build should be run sequentially
-            - name: Wait till previous pipeline has finished this stage
-              uses: softprops/turnstyle@v0.1.5
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                abort-after-seconds: 1800
 
               # Download Artifacts
             - name: Download Artifacts
@@ -83,22 +75,25 @@ jobs:
 
             # Create scratch org
             - name: Create scratch org
-              run: sfdx force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1 -v devhub
+              run: sfdx force:org:create -f config/project-scratch-def.json -a dev -s -d 1 -v devhub
 
             # Install all new packages into scratch org
             - name: 'Install new package versions into scratch org'
-              run: 'sfdx sfpowerscripts:orchestrator:deploy -u scratch-org'
+              run: 'sfdx sfpowerscripts:orchestrator:deploy -u dev'
 
             # Housekeeping
             - name: Delete scratch org
               if: always()
-              run: sfdx force:org:delete -p -u scratch-org
+              run: sfdx force:org:delete -p -u dev
 
     build:
         name: Build Production Ready packages
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
         needs: deploy
+        concurrency:
+           group: build_publish
+           cancel-in-progress:true
         environment:
           name: build
         steps:
@@ -117,15 +112,6 @@ jobs:
               env:
                   SALESFORCE_JWT_SECRET_KEY: ${{ secrets.DEVHUB_SERVER_KEY }}
 
-#Github Actions are event based and are triggered independently,  There is no currently an option to control concurrency settings
-#on pipelines and in this model, build should be run sequentially
-            - name: Wait till previous pipeline has finished this stage
-              uses: softprops/turnstyle@v0.1.5
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                abort-after-seconds: 1800
-
               # Create all packages
               # In practice, --branch flag should be passed the environment variable for the source branch
             - name: 'Create packages'
@@ -143,6 +129,9 @@ jobs:
         runs-on: ubuntu-latest
         container: dxatscale/sfpowerscripts
         needs: build
+        concurrency:
+           group: build_publish
+           cancel-in-progress:true
         steps:
             # Checkout the code
             - name: 'Checkout source code'
