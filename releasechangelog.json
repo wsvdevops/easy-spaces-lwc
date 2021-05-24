@@ -39,6 +39,26 @@
                 "hashId": "6530fc9a48880050588ada6e37e213da26fc1b25"
             },
             "retryCount": 0
+        },
+        {
+            "name": "st",
+            "releases": [
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 3,
+                    "hashId": "793d4441bcf062b6123a150537bdedaaa3125b03"
+                }
+            ],
+            "latestRelease": {
+                "names": [
+                    "Release-1.0"
+                ],
+                "buildNumber": 3,
+                "hashId": "793d4441bcf062b6123a150537bdedaaa3125b03"
+            },
+            "retryCount": 0
         }
     ],
     "releases": [
@@ -720,6 +740,48 @@
                 }
             ],
             "hashId": "6530fc9a48880050588ada6e37e213da26fc1b25"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 3,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "ESBaseCodeLWC",
+                    "from": "2dbd257a",
+                    "to": "deb6c6ba",
+                    "version": "50.0.8.1",
+                    "latestCommitId": "c8dbab13",
+                    "commits": []
+                },
+                {
+                    "name": "ESBaseStylesLWC",
+                    "from": "2dbd257a",
+                    "to": "deb6c6ba",
+                    "version": "50.0.8.1",
+                    "latestCommitId": "d7124579",
+                    "commits": []
+                },
+                {
+                    "name": "ESObjects",
+                    "from": "2dbd257a",
+                    "to": "deb6c6ba",
+                    "version": "50.0.8.1",
+                    "latestCommitId": "3b12d4c2",
+                    "commits": []
+                },
+                {
+                    "name": "ESSpaceMgmtLWC",
+                    "from": "2dbd257a",
+                    "to": "deb6c6ba",
+                    "version": "50.0.5.24",
+                    "latestCommitId": "d60274b3",
+                    "commits": []
+                }
+            ],
+            "hashId": "793d4441bcf062b6123a150537bdedaaa3125b03"
         }
     ]
 }
