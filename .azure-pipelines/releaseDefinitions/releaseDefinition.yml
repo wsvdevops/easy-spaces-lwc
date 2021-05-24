@@ -1,6 +1,12 @@
-release: "myrelease"
+release: "Release-1.0"
+skipIfAlreadyInstalled: true
 artifacts:
-  ESObjects: latest
-  ESBaseStylesLWC: latest
-  ESBaseCodeLWC: latest
-  ESSpaceMgmtLWC: latest
+  ESObjects: develop_azure
+  ESBaseStylesLWC: develop_azure
+  ESBaseCodeLWC: develop_azure
+  ESSpaceMgmtLWC: develop_azure
+#Added a package dependency to demonstrate how dependencies get installed
+packageDependencies:
+  sfpowerscripts_artifact: 04t1P000000ka0fQAA
+changelog:
+  workItemFilter: "BRO-[0-9]{3,4}"
