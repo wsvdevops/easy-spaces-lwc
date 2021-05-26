@@ -19,7 +19,7 @@ stages:
                 - task: DownloadSecureFile@1
                   name: npmrc
                   inputs:
-                      secureFile: npmrc_noauth
+                      secureFile: .npmrc
 
                 - task: npmAuthenticate@0
                   inputs:
