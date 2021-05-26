@@ -147,6 +147,10 @@ stages:
                 inputs:
                   secureFile: .npmrc
 
+              - task: npmAuthenticate@0
+                inputs:
+                  workingFile: $(npmrc.secureFilePath)
+
               - script: |
                   sfdx sfpowerscripts:orchestrator:publish --npm --scope dxatscale --npmrcpath $(npmrc.secureFilePath)
                 displayName: 'Publish artifacts to NPM registry'
