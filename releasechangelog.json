@@ -9,14 +9,21 @@
                     ],
                     "buildNumber": 1,
                     "hashId": "d04196ddce780584972195d6775c7bd776b1f4b0"
+                },
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 2,
+                    "hashId": "0095339f16949e4b0a8e18ae93606df20a9342b7"
                 }
             ],
             "latestRelease": {
                 "names": [
                     "Release-1.0"
                 ],
-                "buildNumber": 1,
-                "hashId": "d04196ddce780584972195d6775c7bd776b1f4b0"
+                "buildNumber": 2,
+                "hashId": "0095339f16949e4b0a8e18ae93606df20a9342b7"
             },
             "retryCount": 0
         }
@@ -658,6 +665,48 @@
                 }
             ],
             "hashId": "d04196ddce780584972195d6775c7bd776b1f4b0"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 2,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "ESBaseCodeLWC",
+                    "from": "77cd4171",
+                    "to": "9d891f42",
+                    "version": "50.0.6.22",
+                    "latestCommitId": "c8dbab13",
+                    "commits": []
+                },
+                {
+                    "name": "ESBaseStylesLWC",
+                    "from": "77cd4171",
+                    "to": "9d891f42",
+                    "version": "50.0.6.22",
+                    "latestCommitId": "d7124579",
+                    "commits": []
+                },
+                {
+                    "name": "ESObjects",
+                    "from": "77cd4171",
+                    "to": "9d891f42",
+                    "version": "50.0.7.5",
+                    "latestCommitId": "3b12d4c2",
+                    "commits": []
+                },
+                {
+                    "name": "ESSpaceMgmtLWC",
+                    "from": "77cd4171",
+                    "to": "9d891f42",
+                    "version": "50.0.5.23",
+                    "latestCommitId": "d60274b3",
+                    "commits": []
+                }
+            ],
+            "hashId": "0095339f16949e4b0a8e18ae93606df20a9342b7"
         }
     ]
 }

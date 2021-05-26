@@ -1,4 +1,28 @@
-[![scratch-org-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=scratch-org&message=Release-1.0-1(0)&color=green)](#d04196ddce780584972195d6775c7bd776b1f4b0) 
+[![scratch-org-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=scratch-org&message=Release-1.0-2(0)&color=green)](#0095339f16949e4b0a8e18ae93606df20a9342b7) 
+<a id=0095339f16949e4b0a8e18ae93606df20a9342b7></a>
+# Release-1.0-2
+### Artifacts :package:
+- **ESBaseCodeLWC**     v50.0.6.22 (9d891f42)
+
+- **ESBaseStylesLWC**     v50.0.6.22 (9d891f42)
+
+- **ESObjects**     v50.0.7.5 (9d891f42)
+
+- **ESSpaceMgmtLWC**     v50.0.5.23 (9d891f42)
+
+### Work Items :gem:
+N/A
+
+### Commits :book:
+N/A
+
+### Additional Information
+The following artifacts' version may have changed due to an update in the scratch org definition file, incremented package version in SFDX project configuration, or build all packages:
+  - ESBaseCodeLWC
+  - ESBaseStylesLWC
+  - ESObjects
+  - ESSpaceMgmtLWC
+
 <a id=d04196ddce780584972195d6775c7bd776b1f4b0></a>
 # Release-1.0-1
 ### Artifacts :package:
