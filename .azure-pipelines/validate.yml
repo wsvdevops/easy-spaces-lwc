@@ -7,7 +7,7 @@ pr:
     drafts: false
     branches:
         include:
-            - azp-templates
+            - develop
 pool:
     vmImage: 'ubuntu-latest'
 
