@@ -9,7 +9,7 @@ schedules:
       displayName: Daily midnight prepare pool
       branches:
           include:
-              - azp-templates
+              - develop
       always: true
 
 pool:
