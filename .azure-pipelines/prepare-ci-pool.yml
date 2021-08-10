@@ -17,7 +17,9 @@ pool:
 
 container: dxatscale/sfpowerscripts:latest
 
-
+variables:
+  - group: SalesforceCICD
+  
 steps:    
 
     - script: |
