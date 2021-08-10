@@ -1,0 +1,31 @@
+# Validate changes introduced through PR
+
+trigger: none
+
+pr:
+    autoCancel: false
+    drafts: false
+    branches:
+        include:
+            - develop
+pool:
+    vmImage: 'ubuntu-latest'
+
+container: dxatscale/sfpowerscripts:latest
+
+variables:
+  - group: DEVHUB
+
+steps:
+
+    - checkout: self
+      persistCredentials: true
+
+    - task: DownloadSecureFile@1
+      name: devhubKey
+      inputs:
+          secureFile: 'DEVHUB_SERVER_KEY'
+
+    - script: |
+          sfdx sfpowerscripts:orchestrator:validate -f $(devhubKey.secureFilePath) -i $(DEVHUB_CLIENT_ID) -p CI2 -u $(DEVHUB_USERNAME)  -x
+      displayName: 'Validate Changes'
