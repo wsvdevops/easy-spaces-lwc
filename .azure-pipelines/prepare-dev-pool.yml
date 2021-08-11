@@ -19,7 +19,7 @@ container: dxatscale/sfpowerscripts:latest
 
 variables:
   - group: SalesforceCICD
-  
+
 steps:    
 
     - script: |
@@ -30,3 +30,13 @@ steps:
     - script: |
           sfdx sfpowerscripts:orchestrator:prepare -f config/devpool.json -v devhub
       displayName: 'Prepare a pool of scratch orgs'
+
+    - task: CopyFiles@2
+      inputs:
+            contents: '.sfpowerscripts/prepare_logs/**'
+            targetFolder: $(Build.ArtifactStagingDirectory)
+            
+    - task: PublishBuildArtifacts@1
+      inputs:
+            pathToPublish: $(Build.ArtifactStagingDirectory)
+            artifactName: PrepareLogs
