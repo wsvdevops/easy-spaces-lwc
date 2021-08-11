@@ -77,7 +77,7 @@ stages:
 #Utilizes a deployment job to make use of environments feature for exclusive lock
     - stage: Build
       displayName: 'Build Production Ready Packages and Publish'
-      dependsOn: Deploy
+      dependsOn: []
       jobs:
           - deployment : BuildJob
             environment: build
