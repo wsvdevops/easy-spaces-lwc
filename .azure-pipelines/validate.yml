@@ -8,11 +8,6 @@ pr:
     branches:
         include:
             - azp-templates
-pool:
-    vmImage: 'ubuntu-latest'
-
-container: dxatscale/sfpowerscripts:latest
-
 variables:
   - group: SalesforceCICD
 
@@ -25,7 +20,8 @@ stages:
             displayName: 'Validate PMD'
             pool:
                 vmImage: 'ubuntu-latest'
-            container: dxatscale/sfpowerscripts:latest            
+            container: dxatscale/sfpowerscripts:latest         
+
             steps:
 
             - checkout: self
@@ -44,17 +40,18 @@ stages:
             displayName: 'Validate Source'
             pool:
                 vmImage: 'ubuntu-latest'
-            container: dxatscale/sfpowerscripts:latest            
+            container: dxatscale/sfpowerscripts:latest     
+
             steps:
 
-    - checkout: self
-      persistCredentials: true
-      
-    - script: |
-          echo $(DEVHUB_SFDX_AUTH_URL) > ./authfile
-          sfdx auth:sfdxurl:store -f authfile -a devhub
-      displayName: 'Authenticate DevHub'
+          - checkout: self
+            persistCredentials: true
+            
+          - script: |
+                echo $(DEVHUB_SFDX_AUTH_URL) > ./authfile
+                sfdx auth:sfdxurl:store -f authfile -a devhub
+            displayName: 'Authenticate DevHub'
 
-    - script: |
-          npx sfdx sfpowerscripts:orchestrator:validate -x -p CI -v devhub --loglevel debug
-      displayName: 'Validate Source'
+          - script: |
+                npx sfdx sfpowerscripts:orchestrator:validate -x -p ci -v devhub --loglevel debug
+            displayName: 'Validate Source'
