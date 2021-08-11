@@ -1,5 +1,6 @@
 name: 'CI Pipeline - Auto Triggered'
 
+# Build Packages to trigger from branch's
 trigger:
     - azp-templates
     - release/**
