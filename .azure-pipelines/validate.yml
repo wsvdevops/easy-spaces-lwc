@@ -28,14 +28,14 @@ stages:
               persistCredentials: true
       
             - script: |
-                  sfdx sfpowerscripts:analyze:pmd -b  -o pmd-output
+                  sfdx sfpowerscripts:analyze:pmd -b  -o pmd-output --format=csv 
               continueOnError: true
               displayName: 'PMD Validation'  
 
             - task: PublishBuildArtifacts@1
               inputs:
-                    pathToPublish: pmd-output/
-                    artifactName: PrepareLogs
+                    pathToPublish: pmd-output
+                    artifactName: PMDResults
 
 
     - stage: ValidateSource
