@@ -28,7 +28,7 @@ stages:
               persistCredentials: true
       
             - script: |
-                  npx sfdx sfpowerkit:source:pmd -f csv --reportfile pmd-output.csv --no-failonviolation
+                  sfdx sfpowerscripts:analyze:pmd -b  -o pmd-output
               continueOnError: true
               displayName: 'PMD Validation'  
 

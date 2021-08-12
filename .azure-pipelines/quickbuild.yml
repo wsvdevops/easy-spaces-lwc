@@ -68,6 +68,7 @@ stages:
                         echo $(DEV_SFDX_AUTH_URL) > ./authfile
                         sfdx auth:sfdxurl:store -f authfile -a dev
                   displayName: 'Authenticate to dev'
+                  
                 - task: CmdLine@2
                   displayName: 'Deploy packages to dev'
                   inputs:
@@ -98,9 +99,14 @@ stages:
                         sfdx auth:sfdxurl:store -f authfile -a devhub
                   displayName: 'Authenticate DevHub'
 
+                - task: DownloadSecureFile@1
+                  name: npmrc
+                  inputs:
+                      secureFile: .npmrc
+
                 - task: npmAuthenticate@0
                   inputs:
-                   workingFile: .npmrc
+                    workingFile: (npmrc.secureFilePath)
 
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
