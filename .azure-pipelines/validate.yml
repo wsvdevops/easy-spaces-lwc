@@ -32,6 +32,12 @@ stages:
               continueOnError: true
               displayName: 'PMD Validation'  
 
+            - task: PublishBuildArtifacts@1
+              inputs:
+                    pathToPublish: pmd-output/
+                    artifactName: PrepareLogs
+
+
     - stage: ValidateSource
       displayName: 'Validate Source'
       dependsOn: []
