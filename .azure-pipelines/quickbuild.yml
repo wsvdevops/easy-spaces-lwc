@@ -106,7 +106,7 @@ stages:
 
                 - task: npmAuthenticate@0
                   inputs:
-                    workingFile: (npmrc.secureFilePath)
+                    workingFile: $(npmrc.secureFilePath)
 
                 - task: CmdLine@2
                   displayName: 'Build All Packages'
@@ -114,7 +114,7 @@ stages:
                       script: 'sfdx sfpowerscripts:orchestrator:build -v devhub --branch main --diffcheck'
 
                 - script: |
-                   sfdx sfpowerscripts:orchestrator:publish --npm --npmtag main --scope dxatscale --npmrcpath .npmrc --gittag --pushgittag
+                   sfdx sfpowerscripts:orchestrator:publish --npm --npmtag main --scope dxatscale --npmrcpath $(npmrc.secureFilePath)  --gittag --pushgittag
                   displayName: 'Publish artifacts to NPM registry'
                 - task: PublishBuildArtifacts@1
                   inputs:

@@ -34,7 +34,7 @@ steps:
 
     - task: npmAuthenticate@0
       inputs:
-        workingFile: (npmrc.secureFilePath)
+        workingFile: $(npmrc.secureFilePath)
 
     - script: |
           sfdx sfpowerscripts:orchestrator:prepare -f config/cipool.json -v devhub
