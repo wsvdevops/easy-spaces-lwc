@@ -56,3 +56,4 @@ public with sharing class ReservationManager {
     public class ReservationManagerException extends Exception {
     }
 }
+// added comments here
