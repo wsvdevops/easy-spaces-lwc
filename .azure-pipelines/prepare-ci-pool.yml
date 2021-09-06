@@ -35,6 +35,9 @@ variables:
   - group: SalesforceCICD
 
 steps:    
+    - checkout: $(commit_id)
+
+
 # Authenticate DevHub 
     - script: |
           echo $(DEVHUB_SFDX_AUTH_URL) > ./authfile
